@@ -1,3 +1,6 @@
+Description
+===========
+
 This repository contains a script (generate-graphs.rb), a configuration
 file (repository.json) and a library of test graphs (src/) to test
 TikZ graph drawing algorithms with.
@@ -12,3 +15,18 @@ algorithms as well as only for specific algorithms.
 The PDFs containing the graph drawings are generated from templates
 in the templates/ folder. The example templates require ConTeXt, but
 it is easy to replace them with templates written for LaTeX.
+
+
+Usage information
+=================
+
+Usage: ./generate-graphs.rb [OPTIONS] [GRAPH TYPES]
+    -b, --batch                      Batch processing (no interaction needed)
+    -c, --cleanup                    Clean up the build directory
+    -n, --regenerate                 Regenerate existing graphs
+    -v, --verbose                    Print the compile logs
+    -t, --type TYPE                  Add graph type to generate drawings for
+    -f, --file FILE                  Add graph file to generate drawings for
+    -a, --algorithm ALGORITHM        Add algorithm to be used
+    -h, --help                       Display usage information
+
