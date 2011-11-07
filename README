@@ -1,0 +1,10 @@
+This repository contains a script (generate-graphs.rb), a configuration
+file (repository.json) and a library of test graphs (src/) to test
+TikZ graph drawing algorithms with.
+
+The script allows families of graphs as well as individual graphs to
+be drawn or regenerated independently. It provides a command-line
+interface for testers to select algorithms and control the output
+verbosity. The configuration file makes it possible to adjust
+TikZ options for families of graphs, individual graphs for all
+algorithms as well as only for specific algorithms.
