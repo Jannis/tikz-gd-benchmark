@@ -2,4 +2,5 @@
 *.log
 *.aux
 *.tuc
-tmp/**/*.tex
+/tmp
+/generated
