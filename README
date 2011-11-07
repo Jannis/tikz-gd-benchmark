@@ -20,7 +20,7 @@ it is easy to replace them with templates written for LaTeX.
 Usage information
 =================
 
-Usage: ./generate-graphs.rb [OPTIONS] [GRAPH TYPES]
+Usage: ./generate-graphs.rb [OPTIONS]
     -b, --batch                      Batch processing (no interaction needed)
     -c, --cleanup                    Clean up the build directory
     -n, --regenerate                 Regenerate existing graphs

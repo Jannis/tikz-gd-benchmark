@@ -29,7 +29,7 @@ OPTIONS.batch = false
 
 # parse command line options
 ARGV.options do |opts|
-  opts.banner = 'Usage: %s [OPTIONS] [GRAPH TYPES]' % $0
+  opts.banner = 'Usage: %s [OPTIONS]' % $0
 
   opts.on('-b', '--batch', 'Batch processing (no interaction needed)') do |opt|
     OPTIONS.batch = true
