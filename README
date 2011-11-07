@@ -30,3 +30,8 @@ Usage: ./generate-graphs.rb [OPTIONS]
     -a, --algorithm ALGORITHM        Add algorithm to be used
     -h, --help                       Display usage information
 
+Examples:
+
+  ./generate-graphs.rb -t digraphs -a "Hu2006 spring electrical"
+  ./generate-graphs.rb -f src/c_n/c_5
+  ./generate-graphs.rb -t digraphs -f src/k_n/k_10 -a "H2006 spring"
