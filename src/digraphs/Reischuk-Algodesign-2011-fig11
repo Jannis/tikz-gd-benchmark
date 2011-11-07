@@ -1,0 +1,22 @@
+q -> [edge label={$\alpha$}] v_1,
+q -> [edge label={$\alpha$}] v_2,
+
+v_1 -> [edge label={$\alpha$}] v_3,
+v_1 -> [edge label={$\alpha$}] v_4,
+v_1 -> [edge label={$\alpha$}] v_5,
+v_1 -> [edge label={$\beta$},layered drawing={minimum levels=0}] v_2,
+
+v_2 -> [edge label={$\alpha$}] v_3,
+v_2 -> [edge label={$\alpha$}] v_4,
+v_2 -> [edge label={$\alpha$}] v_5,
+
+v_3 -> [edge label={1}] v_6,
+v_3 -> [edge label={$\alpha$}] s,
+
+v_4 -> [edge label={$\beta$}] v_6,
+v_4 -> [edge label={$\alpha$}] s,
+
+v_5 -> [edge label={$\alpha$}] s,
+
+v_6 -> [edge label={$\alpha$}] v_5,
+v_6 -> [edge label={$\alpha$},layered drawing={minimum levels=0}] s,

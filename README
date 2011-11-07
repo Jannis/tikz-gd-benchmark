@@ -8,3 +8,7 @@ interface for testers to select algorithms and control the output
 verbosity. The configuration file makes it possible to adjust
 TikZ options for families of graphs, individual graphs for all
 algorithms as well as only for specific algorithms.
+
+The PDFs containing the graph drawings are generated from templates
+in the templates/ folder. The example templates require ConTeXt, but
+it is easy to replace them with templates written for LaTeX.

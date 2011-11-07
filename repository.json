@@ -1,0 +1,242 @@
+{
+  "algorithms" : {
+    "Hu2006 spring electrical" : {
+      "template" : "spring-electrical.erb"
+    },
+    "Hu2006 spring" : {
+      "template" : "spring-electrical.erb"
+    },
+    "Walshaw2000 spring electrical" : {
+      "template" : "spring-electrical.erb"
+    },
+    "modular layered" : {
+      "template" : "modular-layered.erb"
+    }
+  },
+  "graphs" : {
+    "clustered" : {
+      "global parameters" : {
+      },
+      "graph parameters": {
+      },
+      "algorithms" : {
+        "Hu2006 spring electrical" : { 
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Hu2006 spring" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Walshaw2000 spring electrical" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : { }
+        }
+      }
+    },
+    "digraphs" : {
+      "global parameters" : {
+      },
+      "graph parameters" : {
+        "GansnerKNV1993-shells" : {
+          "graph" : { "cluster=1972,cluster=1976,cluster=1978,cluster=1980,cluster=1982,cluster=1984,cluster=1986,cluster=1988,cluster=1990,cluster=future" : "", "nodes" : "{draw,rectangle}" }
+        },
+        "Jakoby-Algorithmics-2011-8.4a" : {
+          "graph" : { "math nodes" : "" }
+        },
+        "Jakoby-Algorithmics-2011-8.4b" : {
+          "graph" : { "math nodes" : "" }
+        },
+        "Jakoby-Algorithmics-2011-p333" : {
+          "graph" : { "math nodes" : "" }
+        },
+        "Mathematica-history_of_unix" : {
+          "graph" : { "nodes" : "rectangle" }
+        },
+        "Reischuk-Algodesign-2011-fig6" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Reischuk-Algodesign-2011-fig11" : {
+          "graph" : { "math nodes" : "", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Reischuk-TI-2010-fig6" : {
+          "graph" : { "math nodes" : "", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Parallelverarbeitung-2011-3.1.1" : {
+          "graph" : { "nodes" : "{as=}", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Parallelverarbeitung-2011-p137-volladdierer" : {
+          "graph" : { "cluster=inputs,cluster=outputs" : "", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-4-12" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-4-12b" : {
+          "graph" : { "math nodes" : "", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-Tutorial4.5" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-6-22" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-Tutorial6.1" : {
+          "graph" : { "math nodes" : "", "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-7-7" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-8-17" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-20-10" : {
+          "graph" : { "edges" : "{nodes={rectangle,draw=none}}" }
+        },
+        "Tantau-Theoretical-CS-2009-28-13" : {
+          "graph" : { "nodes" : "{rectangle,draw=none}", "edges" : "{nodes={rectangle,draw=none}}" }
+        }
+      },
+      "algorithms" : {
+        "Hu2006 spring electrical" : {
+          "parameters" : {
+            "algorithm" : {
+              "natural spring dimension" : "1.5cm"
+            },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Walshaw2000 spring electrical" : {
+          "parameters" : {
+            "algorithm" : {
+              "natural spring dimension" : "1.5cm"
+            },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Hu2006 spring" : {
+          "parameters" : {
+            "algorithm" : {
+              "natural spring dimension" : "1.5cm"
+            },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "modular layered" : {
+          "parameters" : {
+            "algorithm" : {
+              "sibling distance" : "1.5cm",
+              "level distance" : "1.5cm"
+            },
+            "graph" : { 
+            }
+          },
+          "graph parameters" : {
+            "Reischuk-Algodesign-2011-fig6" : {
+              "algorithm" : { "sibling distance" : "2.5cm", "level distance" : "2.5cm" }
+            },
+            "Reischuk-Algodesign-2011-fig11" : {
+              "algorithm" : { "sibling distance" : "2.5cm", "level distance" : "2.5cm" }
+            },
+            "Tantau-Parallelverarbeitung-2011-p137-volladdierer" : {
+              "algorithm" : { "first layer" : "inputs", "last layer" : "outputs" }
+            },
+            "Tantau-Theoretical-CS-2009-6-22" : {
+              "algorithm" : { "sibling distance" : "2cm", "level distance" : "2.5cm" }
+            },
+            "Tantau-Theoretical-CS-2009-Tutorial6.1" : {
+              "algorithm" : { "sibling distance" : "2.5cm", "level distance" : "2.5cm" }
+            },
+            "Tantau-Theoretical-CS-2009-28-13" : {
+              "algorithm" : { "sibling distance" : "3cm" }
+            }
+          }
+        }
+      }
+    },
+    "k_n" : {
+      "global parameters" : {
+      },
+      "graph parameters": {
+      },
+      "algorithms" : {
+        "Hu2006 spring" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Hu2006 spring electrical" : { 
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Walshaw2000 spring electrical" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : { }
+        }
+      }
+    },
+    "c_n" : {
+      "global parameters" : {
+      },
+      "graph parameters": {
+      },
+      "algorithms" : {
+        "Hu2006 spring" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Hu2006 spring electrical" : { 
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : {
+          }
+        },
+        "Walshaw2000 spring electrical" : {
+          "parameters" : {
+            "algorithm" : { },
+            "graph" : { }
+          },
+          "graph parameters" : { 
+            "c_10" : {
+              "algorithm" : {
+                "natural spring dimension" : "0.8cm"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

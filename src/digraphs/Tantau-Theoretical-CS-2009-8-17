@@ -1,0 +1,14 @@
+qa__$q_a$ [state],
+qb__$q_b$ [state],
+qc__$q_c$ [state,accepting],
+
+start [draw=none] -> qa,
+
+qa -> [edge label={0,2},loop right] qa,
+qa -> [edge label=1,bend right] qb,
+
+qb -> [edge label=0] qa,
+qb -> [edge label={1,2}] qc,
+
+qc -> [edge label=0] qa,
+qc -> [edge label={1,2},loop right] qc

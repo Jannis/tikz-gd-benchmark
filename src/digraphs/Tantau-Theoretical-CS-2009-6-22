@@ -1,0 +1,19 @@
+qa__$q_a$ [state],
+qab__{$\{q_a,q_b\}$} [state],
+qabc__{$\{q_a,q_b,q_c\}$} [state,accepting],
+qac__{$\{q_a,q_c\}$} [state],
+
+start [draw=none] -> [layered drawing={minimum levels=0}] qa,
+
+qa -> [edge label=0,loop above] qa,
+
+qa -> [edge label=1,layered drawing={minimum levels=0},bend left] qab,
+qab -> [edge label=0,layered drawing={minimum levels=0},bend left] qa,
+
+qab -> [edge label=1,layered drawing={minimum levels=0}] qabc,
+
+qabc -> [edge label=1,loop right] qabc,
+qabc -> [edge label=0,bend left] qac,
+qac -> [edge label=1,bend left] qabc,
+
+qac -> [edge label=0,loop right] qac

@@ -1,0 +1,23 @@
+% Source:
+% Layered Drawings of Digraphs
+% Oliver Bastert, Christian Matuszewski
+% From the book "Drawing Graphs: Methods and Models"
+%
+% Description:
+% A relatively simple directed graph with a three cycles
+% involving the nodes (6, 10, 14), (6, 11, 14) and (1, 5, 8).
+% The book chapter shows drawings of this graph using
+% various of the tools already available.
+ 1 -> 5,
+ 2 -> {5, 10},
+ 3 -> 6,
+ 3 -> {7, 9},
+ 4 -> 7,
+ 5 -> {8, 9},
+ 6 -> {10, 11},
+ 7 -> {11, 15},
+ 8 -> {1, 12},
+ 9 -> {12, 13, 14},
+10 -> 14,
+11 -> 14,
+14 -> 6,

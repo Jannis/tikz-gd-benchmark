@@ -1,0 +1,11 @@
+% Source:
+% Graph Drawing
+% Battista/Eades/Tamassia/Tollis
+% Chapter 1, Page 4
+%
+% Description:
+% A planr graph of a polymorphic class hierarchy
+
+Point -- Square -- { Rhombus, Rectangle } -- Quadliteral -- Polygon -- Shape;
+Point -- Triangle -- Polygon;
+Point -- Circle -- Ellipse -- Shape;

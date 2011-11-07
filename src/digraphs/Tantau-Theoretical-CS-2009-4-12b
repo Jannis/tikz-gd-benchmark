@@ -1,0 +1,14 @@
+q_1 [state],
+q_2 [state,accepting],
+q_3 [state,xshift=0.75cm],
+
+start [draw=none] -> [layered drawing={minimum levels=0}] q_1,
+
+q_1 -> [edge label=a,layered drawing={minimum levels=0}] q_2,
+q_1 -> [edge node={node[below]{b}},bend right] q_3,
+
+q_2 -> [edge label=a,loop right] q_2,
+q_2 -> [edge label=b,bend left] q_3,
+
+q_3 -> [edge label=b,bend left] q_2,
+q_3 -> [edge label=a,loop right] q_3,

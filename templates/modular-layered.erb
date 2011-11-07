@@ -1,0 +1,134 @@
+% Load TikZ/PGF
+\usemodule[tikz]
+\usetikzlibrary[decorations,automata,graphs,arrows]
+\usetikzlibrary[graphdrawing,graphdrawing.layered]
+
+% Set up the body font
+\usetypefile[gentium]
+\starttypescript[Gentium]
+  \definetypeface[Gentium][rm][serif][gentium][default]
+  \definetypeface[Gentium][tt][mono][modern][default][rscale=0.887]
+  \definetypeface[Gentium][mm][math][palatino][default]
+\stoptypescript
+\setupbodyfont[Gentium,10pt]
+
+\setupTABLE[each][each][frame=off]
+
+\pgfgdenableverboselogging
+
+<%
+
+  algorithms = {
+    'cycle removal'         => [ 'BergerS1990a', 'BergerS1990b', 'EadesLS1993', 'GansnerKNV1993' ],
+    'node ranking'          => [ 'GansnerKNV1993', 'minimum height' ],
+    'crossing minimization' => [ 'GansnerKNV1993' ],
+    'node positioning'      => [ 'GansnerKNV1993' ],
+    'edge routing'          => [ 'GansnerKNV1993' ],
+  }
+
+%>
+
+\starttext
+\startTEXpage[width=20cm]
+
+\startframedtext[width=20cm,frame=no]
+  {\tfc Layered drawing of {\tt <%= graph_name.gsub('_', '\\_') %>}}
+  \blank[big,force]
+  {\tfa Generated with algorithm {\tt <%= algorithm %>}}
+  \blank[big,force]
+  <% if params.has_key?('graph') and not params['graph'].empty? %>
+    {\tfa Graph options}
+    \starttyping
+<% for key, val in params['graph'] %><%= key %> = <%= val %>
+<% end %>  
+    \stoptyping
+  <% end %>
+  <% if params.has_key?('algorithm') and not params['algorithm'].empty? %>
+    {\tfa Algorithm options}
+    \starttyping
+<% for key, val in params['algorithm'] %><%= key %> = <%= val %>
+<% end %>
+    \stoptyping
+  <% end %>
+  {\tfa Graph code}
+  \starttyping
+<%= graph_code %>
+  \stoptyping
+\stopframedtext
+
+\bTABLE
+  \bTR
+  \bTD
+    \, \crlf
+    \, \crlf
+  \eTD
+  \eTR
+<% counter = 0 %>
+<% for cycle_removal in algorithms['cycle removal'] %>
+  <% for node_ranking in algorithms['node ranking'] %>
+    <% for crossing_minimization in algorithms['crossing minimization'] %>
+      <% for node_positioning in algorithms['node positioning'] %>
+        <% for edge_routing in algorithms['edge routing'] %>
+          <% counter += 1 %>
+          \bTR
+          \bTD
+            \startalignment[center]
+              \placefigure[here,width=20cm][fig:image<%= counter %>]{%
+                \startalignment[center]
+                \, \crlf
+                cycle removal: <%= cycle_removal %> \crlf
+                node ranking: <%= node_ranking %> \crlf
+                crossing minimization: <%= crossing_minimization %> \crlf
+                node positioning: <%= node_positioning %> \crlf
+                edge routing: <%= edge_routing %>
+                \stopalignment}{%
+                \starttikzpicture[graphs/every graph/.style={edges={rounded corners}},every node/.style={anchor=center,draw={black!30},circle},every path/.style={>=latex}]
+                  \graph[/graph drawing/layered drawing/default algorithm=<%= algorithm %>,%
+                         <%= params['graph'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                         layered drawing={%
+                           <%= params['algorithm'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                           cycle removal=<%= cycle_removal %>,
+                           node ranking=<%= node_ranking %>,
+                           crossing minimization=<%= crossing_minimization %>,
+                           node positioning=<%= node_positioning %>,
+                           edge routing=<%= edge_routing %>,
+                         }]{
+<%= graph_code %>
+                  };
+                \stoptikzpicture
+              }
+            \stopalignment
+          \eTD
+          \eTR
+          \bTR
+          \bTD
+            \, \crlf
+            \, \crlf
+          \eTD
+          \eTR
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+\eTABLE
+
+\stopTEXpage
+\stoptext
+
+%\starttext
+%\startTEXpage
+%\starttikzpicture[graphs/every graph/.style={edges={rounded corners}},every node/.style={anchor=center},every path/.style={>=latex}]
+%
+%  \graph[/graph drawing/layered drawing/default algorithm=<%= algorithm %>,
+%         layered drawing={
+%           %cycle removal=BergerS1990a,
+%           node ranking=minimum height,
+%         }] 
+%  {
+%<%= graph_code %>
+%  };
+%
+%\stoptikzpicture
+%\stopTEXpage
+%\stoptext

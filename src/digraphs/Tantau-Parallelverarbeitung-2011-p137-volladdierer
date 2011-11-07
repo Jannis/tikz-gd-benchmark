@@ -1,0 +1,31 @@
+{ 
+  [inputs] 
+
+  ai__$a_i$, 
+  bi__$b_i$, 
+  gi__$g_{i-1}$ 
+},
+{ 
+  [outputs] 
+
+  ci__$c_i$, 
+  si__$s_i$
+},
+
+ai -> { ab_and1__$\wedge$, ab_or__$\vee$ },
+bi -> { ab_and1, ab_or },
+
+ab_and1 -> { neg1__$\neg$, out_or__$\vee$ },
+ab_or -> ab_and2__$\wedge$,
+neg1 -> ab_and2,
+
+ab_and2 -> { abg_and__$\wedge$, abg_or__$\vee$ },
+gi__$g_{i-1}$ -> { abg_and, abg_or },
+
+abg_and -> { out_or, neg2__$\neg$ },
+abg_or -> { out_and__$\wedge$ },
+
+neg2 -> out_and,
+
+out_or -> ci,
+out_and -> si

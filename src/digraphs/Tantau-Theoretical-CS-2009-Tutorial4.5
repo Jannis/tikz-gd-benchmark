@@ -1,0 +1,22 @@
+qa__$q_a$ [state],
+qb__$q_b$ [state],
+qc__$q_c$ [state],
+qd__$q_d$ [state,accepting],
+qe__$q_e$ [state,accepting],
+
+start [draw=none] -> [layered drawing={minimum levels=0}] qa,
+
+qa -> [edge label=0] qb,
+qa -> [edge label=1] qc,
+
+qb -> [edge label=0,loop left] qb,
+qb -> [edge label=1,bend left] qd,
+
+qc -> [edge label=1,loop right] qc,
+qc -> [edge label=0,bend left] qe,
+
+qd -> [edge label=0,bend left] qb,
+qd -> [edge label=1,loop left] qd,
+
+qe -> [edge label=0,loop right] qe,
+qe -> [edge label=1,bend left] qc

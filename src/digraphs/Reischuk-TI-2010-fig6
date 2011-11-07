@@ -1,0 +1,10 @@
+start [draw=none,rectangle] -> q_0 [state],
+
+q_0 -> [edge label={a,b},loop right] q_0,
+q_0 -> [edge label=b] q_1 [state],
+q_1 -> [edge label={a,b}] q_2 [state],
+q_2 -> [edge label={a,b}] q_3 [state,accepting],
+q_3 -> [edge label=a] q_0,
+q_3 -> [edge label'=b] q_1,
+q_4 [state] -> [edge label=a] q_2,
+q_4 -> [edge label=b] q_1,

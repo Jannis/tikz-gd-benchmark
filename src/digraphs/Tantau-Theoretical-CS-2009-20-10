@@ -1,0 +1,21 @@
+qa__$q_a$ [state],
+qb__$q_b$ [state],
+qc__$q_c$ [state],
+qd__$q_d$ [state],
+qe__$q_e$ [state],
+
+start [draw=none] -> qa,
+
+qa -> [edge label={$\square,1,l$}] qb,
+qa -> [edge label={$1,1,r$}] qc,
+
+qb -> [edge label={$1,1,l$},loop below] qb,
+qb -> [edge label={$\square,1,l$}] qc,
+
+qc -> [edge label={$\square,1,l$}] qd,
+qc -> [edge label={$1,\square,r$}] qe,
+
+qd -> [edge label={$1,1,r$},loop below] qd,
+qd -> [edge label={$\square,1,r$}] qa,
+
+qe -> [edge label={$1,\square,r$}] qa

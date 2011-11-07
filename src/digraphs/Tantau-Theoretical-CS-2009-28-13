@@ -1,0 +1,8 @@
+__{CIRCUIT-SAT} -> __{3-SAT} -> {
+  SAT,
+  __{INDEPENDENT-SET} -> CLIQUE -> __{VERTEX-COVER} -> HAMILTON -> {
+    TSP,
+    __{LONGEST-PATH}
+  },
+  __{SUBSET-SUM}
+}

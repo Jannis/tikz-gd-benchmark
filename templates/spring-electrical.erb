@@ -1,0 +1,114 @@
+\usemodule[tikz]
+\usetikzlibrary[automata,graphs,graphs.standard,arrows,graphdrawing,graphdrawing.force]
+
+% Set up the body font
+\usetypefile[gentium]
+\starttypescript[Gentium]
+  \definetypeface[Gentium][rm][serif][gentium][default]
+  \definetypeface[Gentium][tt][mono][modern][default][rscale=0.887]
+  \definetypeface[Gentium][mm][math][palatino][default]
+\stoptypescript
+\setupbodyfont[Gentium,10pt]
+
+\setupTABLE[each][each][frame=off]
+
+\pgfgdenableverboselogging
+
+%\pgfkeys{
+%  /graph drawing/spring electrical layout/repulsive force order=1,
+%}
+
+\starttext
+\startTEXpage[width=30cm]
+
+\startframedtext[width=30cm,frame=no]
+  {\tfc Force-based drawing of {\tt <%= graph_name.gsub('_', '\\_') %>}}
+  \blank[big,force]
+  {\tfa Generated with algorithm {\tt <%= algorithm %>}}
+  \blank[big,force]
+  <% if params.has_key?('graph') and not params['graph'].empty? %>
+    {\tfa Graph options}
+    \starttyping
+<% for key, val in params['graph'] %><%= key %> = <%= val %>
+<% end %>  
+    \stoptyping
+  <% end %>
+  <% if params.has_key?('algorithm') and not params['algorithm'].empty? %>
+    {\tfa Algorithm options}
+    \starttyping
+<% for key, val in params['algorithm'] %><%= key %> = <%= val %>
+<% end %>
+    \stoptyping
+  <% end %>
+  {\tfa Graph code}
+  \starttyping
+<%= graph_code %>
+  \stoptyping
+\stopframedtext
+
+\bTABLE
+  <% range = [500] %>
+  <% range = (0..50).to_a + [100, 200, 300, 400, 500] %>
+  <% range = [0, 1, 2, 10, 50, 500] %>
+  <% range = [0, 1, 50, 500] %>
+  <% range = [0, 1, 500] %>
+  <% for i in range do %>
+    \bTR
+      \bTD
+        \startalignment[center]
+          \placefigure[here,width=12cm][fig:nocoarsening<%= i %>-iterations]{Without coarsening, <%= i %> iterations}{%
+            \starttikzpicture[every node/.style={anchor=center,draw={black!30},circle}]
+              \graph[/graph drawing/spring electrical layout/default algorithm=<%= algorithm %>,%
+                     <%= params['graph'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                     spring electrical layout={%
+                       <%= params['algorithm'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                       coarsen=false,
+                       iterations=<%= i %>
+                     },%
+                     <% if i == 500 %>benchmark log file=../../<%= benchmark_log_file %>,%
+                     benchmark id=<%= benchmark_id %><% end %>%
+                    ]
+              {
+<%= graph_code %>
+              };
+            \stoptikzpicture%
+          }
+        \stopalignment
+      \eTD
+      \bTD
+        \startalignment[center]
+          \placefigure[here,width=12cm][fig:coarsening<%= i %>-iterations]{With coarsening, <%= i %> iterations}{%
+            \starttikzpicture[every node/.style={anchor=center,draw={black!30},circle}]
+              \graph[/graph drawing/spring electrical layout/default algorithm=<%= algorithm %>,%
+                     <%= params['graph'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                     spring electrical layout={%
+                       <%= params['algorithm'].collect do |key, val| "#{key}=#{val}," end.join('') %>%
+                       coarsen,
+                       iterations=<%= i %>
+                     },%
+                     <% if i == 500 %>benchmark log file=../../<%= benchmark_log_file %>,
+                       benchmark id=<%= benchmark_id %>-coarsening<% end %>%
+                    ]
+              {
+<%= graph_code %>
+              };
+            \stoptikzpicture%
+          }
+        \stopalignment
+      \eTD
+    \eTR
+    \bTR
+      \bTD
+        \, \crlf
+        \, \crlf
+      \eTD
+      \bTD
+        \, \crlf
+        \, \crlf
+      \eTD
+    \eTR
+  <% end %>
+\eTABLE
+
+\stopTEXpage
+\stoptext

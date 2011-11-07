@@ -1,0 +1,57 @@
+% Source: 
+% Tidier Drawings of Trees
+% Reingold, Tilford
+% Page 1
+%
+% Description:
+% This is a 100% symmetrical tree with 31 nodes. It is written in TikZ
+% in two different ways to verify the results are the same despite the
+% hierarchical vs. flat graph declaration. The other version is in 
+% binary-tree-1.tex.
+
+1[root] -- {
+  2 -- {
+    3 -- {
+      4 -- {
+        5 -- {
+          6,
+          7 -- {
+            8,
+            9 -- {
+              10,
+              11 -- {
+                12,
+                13
+              }
+            }
+          }
+        },
+        14
+      },
+      15
+    },
+    16
+  },
+  17 -- {
+    18,
+    19 -- {
+      20,
+      21 -- {
+        22,
+        23 -- {
+          24 -- {
+            25 -- {
+              26 -- {
+                27,
+                28
+              },
+              29
+            },
+            30
+          },
+          31
+        }
+      }
+    }
+  }
+};
